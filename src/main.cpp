@@ -3,9 +3,10 @@
  * Vanya Yaneva, 2020
  */
 
+#include "pancaketimer.h"
 #include <iostream>
 
-int main(int argc, const char* argv[])
-{
+int main(int argc, const char *argv[]) {
   std::cout << "Time for pancakes!" << std::endl;
+  return 0;
 }
