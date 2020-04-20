@@ -8,5 +8,6 @@
 
 int main(int argc, const char *argv[]) {
   std::cout << "Time for pancakes!" << std::endl;
+  time_pancake();
   return 0;
 }
