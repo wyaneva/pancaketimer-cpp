@@ -3,7 +3,7 @@
 #include <iostream>
 
 TEST (time_pancake_test, first_test) {
-  EXPECT_EQ(0, time_pancake());
+  EXPECT_EQ(0, time_pancake(0, 0, 0));
 }
 
 int main(int argc, char *argv[]) {
