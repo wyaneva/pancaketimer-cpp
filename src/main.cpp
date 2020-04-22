@@ -6,12 +6,12 @@
 #include "pancaketimer.h"
 #include <iostream>
 
-int const side1 = 5;//85;
-int const side2 = 5;//60;
-int const flip = 5;//5;
+Mode const testmode{5, 5, 5};
+Mode const pancake{85, 60, 5};
+Mode const crepe{80, 40, 10};
 
 int main(int argc, const char *argv[]) {
   std::cout << "Time for pancakes!" << std::endl;
-  time_pancake(side1, side2, flip);
+  time_pancake(testmode);
   return 0;
 }

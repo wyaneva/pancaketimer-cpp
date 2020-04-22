@@ -1,6 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int time_pancake(int const, int const, int const);
+struct Mode {
+  int const side1;
+  int const side2;
+  int const flip;
+};
+
+int time_pancake(Mode const);
 
 #endif

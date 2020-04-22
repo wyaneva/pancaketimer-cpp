@@ -3,7 +3,8 @@
 #include <iostream>
 
 TEST (time_pancake_test, first_test) {
-  EXPECT_EQ(0, time_pancake(0, 0, 0));
+  Mode const testmode{0,0,0};
+  EXPECT_EQ(0, time_pancake(testmode));
 }
 
 int main(int argc, char *argv[]) {

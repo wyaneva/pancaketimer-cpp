@@ -33,12 +33,12 @@ void run_timer(int const time, bool const do_print) {
   }
 }
 
-int time_pancake(int const side1, int const side2, int const flip) {
+int time_pancake(Mode const mode) {
 
-  run_timer(side1, true);
+  run_timer(mode.side1, true);
   std::cout << "FLIP!" << std::endl;
-  run_timer(flip, false);
-  run_timer(side2, true);
+  run_timer(mode.flip, false);
+  run_timer(mode.side2, true);
 
   return 0;
 }
