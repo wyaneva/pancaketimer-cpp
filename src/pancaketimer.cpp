@@ -10,6 +10,12 @@
 class PancakeTimer {};
 
 int const time_step = 1;
+char const BAR_CHAR = '=';
+char const SPACE_CHAR = ' ';
+
+void write_progress(int bar_fill, int total_width, std::string text) {
+  std::cout << bar_fill << std::endl;
+}
 
 void run_timer(int const time, bool const do_print) {
   int threshold = time_step;
@@ -23,7 +29,7 @@ void run_timer(int const time, bool const do_print) {
     if (t.count() > threshold) {
       threshold += time_step;
       if (do_print)
-        std::cout << bar_fill << std::endl;
+        write_progress(bar_fill, 0, "");
       bar_fill -= time_step;
     }
 
