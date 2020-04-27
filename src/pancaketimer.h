@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef PANCAKE_TIMER_H
+#define PANCAKE_TIMER_H
 
 struct Mode {
   int const side1;
