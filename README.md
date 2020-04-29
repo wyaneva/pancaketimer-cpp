@@ -1,4 +1,4 @@
-# Pancake Timer #
+# Pancake Timer # [![Build Status](https://travis-ci.com/wyaneva/pancaketimer-cpp.svg?branch=master)](https://travis-ci.com/wyaneva/pancaketimer-cpp)
 
 A little helper for the perfect pancakes.
 
