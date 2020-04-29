@@ -36,7 +36,7 @@ TEST(argument_parser_test, get_argument_no) {
 }
 
 TEST(time_pancake_test, first_test) {
-  Mode const testmode{0, 0, 0};
+  Mode testmode{"test", 0, 0, 0};
   EXPECT_EQ(0, time_pancake(testmode));
 }
 
