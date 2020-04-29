@@ -1,10 +1,13 @@
 #ifndef PANCAKE_TIMER_H
 #define PANCAKE_TIMER_H
 
+#include <string>
+
 struct Mode {
-  int const side1;
-  int const side2;
-  int const flip;
+  std::string name;
+  int side1;
+  int side2;
+  int flip;
 };
 
 int time_pancake(Mode const);
