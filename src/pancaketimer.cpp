@@ -82,5 +82,5 @@ int time_pancake(Mode const mode) {
   run_timer(mode.flip, false);
   run_timer(mode.side2, true);
 
-  return 0;
+  return 1;
 }
