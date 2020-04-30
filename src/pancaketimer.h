@@ -10,6 +10,6 @@ struct Mode {
   int flip;
 };
 
-int time_pancake(Mode const);
+void time_pancake(Mode const);
 
 #endif

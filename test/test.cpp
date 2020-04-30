@@ -35,11 +35,6 @@ TEST(argument_parser_test, get_argument_no) {
   EXPECT_EQ(parser.getArgumentValue("-side2"), "");
 }
 
-TEST(time_pancake_test, first_test) {
-  Mode testmode{"test", 0, 0, 0};
-  EXPECT_EQ(0, time_pancake(testmode));
-}
-
 int main(int argc, char *argv[]) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

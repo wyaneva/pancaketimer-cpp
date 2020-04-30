@@ -76,11 +76,9 @@ void run_timer(int const time, bool const do_print) {
   }
 }
 
-int time_pancake(Mode const mode) {
+void time_pancake(Mode const mode) {
   run_timer(mode.side1, true);
   write_progress(0, total_width, "FLIP! FLIP! FLIP!");
   run_timer(mode.flip, false);
   run_timer(mode.side2, true);
-
-  return 1;
 }
