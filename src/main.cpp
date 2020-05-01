@@ -70,5 +70,6 @@ int main(int argc, const char *argv[]) {
       std::cin.ignore();
     }
   }
+  std::cout << "Done! Enjoy your pancakes!" << std::endl;
   return 0;
 }

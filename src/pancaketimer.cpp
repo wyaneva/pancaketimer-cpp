@@ -32,20 +32,12 @@ void write_progress(int const bar_width, int const total_width,
 
   // compose the progress bar
   std::string bar = "[";
-  for (int i = 0; i < bar_lhs; i++) {
-    bar += BAR_CHAR;
-  }
-  for (int i = 0; i < spacing_lhs; i++) {
-    bar += SPACE_CHAR;
-  }
-  bar += text;
-  for (int i = 0; i < bar_rhs; i++) {
-    bar += BAR_CHAR;
-  }
-  for (int i = 0; i < spacing_rhs; i++) {
-    bar += SPACE_CHAR;
-  }
-  bar += "]";
+  bar.append(bar_lhs, BAR_CHAR);
+  bar.append(spacing_lhs, SPACE_CHAR);
+  bar.append(text);
+  bar.append(bar_rhs, BAR_CHAR);
+  bar.append(spacing_rhs, SPACE_CHAR);
+  bar.append("]");
 
   // make the progress bar green
   auto green_bar = "\033[32m" + bar + "\033[0m";
