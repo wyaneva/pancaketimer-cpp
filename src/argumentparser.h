@@ -10,7 +10,8 @@ public:
   ArgumentParser(int const &argc, char const *argv[]);
 
   // public functions
-  std::string const &getArgumentValue(std::string const &option) const;
+  std::string const getArgumentValueStr(std::string const &option) const;
+  int const getArgumentValueInt(std::string const &option) const;
   bool doesArgumentExist(std::string const &option) const;
 
 private:
