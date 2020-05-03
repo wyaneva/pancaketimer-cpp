@@ -8,7 +8,6 @@
 #include <iostream>
 #include <vector>
 
-// TODO 3: Function to print accepted arguments -h
 // TODO 4: Add sound
 
 int main(int argc, const char *argv[]) {

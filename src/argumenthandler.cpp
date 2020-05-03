@@ -10,7 +10,16 @@ bool ArgumentHandler::doHelp() {
 }
 
 void ArgumentHandler::printHelp() {
-  std::cout << "You have asked for help!" << std::endl;
+  std::cout
+      << "Welcome to Pancake Timer!" << std::endl
+      << "To make the perfect pancakes, run ./pancaketimer without arguments."
+      << std::endl
+      << "For the perfect crepes, run with\t\"--mode crepes\"." << std::endl
+      << "To use your own times, run with \t\"--side1 [time] --side2 [time]\"."
+      << std::endl
+      << "To make repeat pancakes, run with\t\"--repeats [number]\"."
+      << std::endl
+      << "Good luck!" << std::endl;
 }
 
 Mode ArgumentHandler::getPancakeMode() {
@@ -57,7 +66,7 @@ Mode ArgumentHandler::getPancakeMode() {
       mode = findModeByName(modeName);
 
       if (mode.name == emptyMode.name) {
-        std::cout << modeName << " is an invalid mode." << std::endl
+        std::cout << "\"" << modeName << "\" is an invalid mode." << std::endl
                   << "Please, provide a valid mode." << std::endl;
         printDefaultModes();
         return emptyMode;
