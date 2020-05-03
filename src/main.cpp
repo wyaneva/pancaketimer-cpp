@@ -14,6 +14,11 @@
 int main(int argc, const char *argv[]) {
   ArgumentHandler argumenthandler(argc, argv);
 
+  if (argumenthandler.doHelp()) {
+    argumenthandler.printHelp();
+    return 0;
+  }
+
   auto mode = argumenthandler.getPancakeMode();
   auto repeats = argumenthandler.getRepeats();
 

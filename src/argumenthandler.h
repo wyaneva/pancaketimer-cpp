@@ -14,6 +14,8 @@ public:
   // public functions
   Mode getPancakeMode();
   int getRepeats();
+  bool doHelp();
+  void printHelp();
 
 private:
   ArgumentParser parser;

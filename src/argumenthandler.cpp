@@ -5,6 +5,14 @@
 
 #include "argumenthandler.h"
 
+bool ArgumentHandler::doHelp() {
+  return parser.doesArgumentExist("-h") || parser.doesArgumentExist("--help");
+}
+
+void ArgumentHandler::printHelp() {
+  std::cout << "You have asked for help!" << std::endl;
+}
+
 Mode ArgumentHandler::getPancakeMode() {
 
   // Set the default mode

@@ -184,6 +184,53 @@ TEST(argument_handler_test, get_repeats_no3) {
   EXPECT_EQ(rep, 0);
 }
 
+TEST(argument_handler_test, do_help_yes1) {
+  int argc = 2;
+  char const *argv[2] = {"pancaketimer", "-h"};
+  ArgumentHandler handler(argc, argv);
+  auto h = handler.doHelp();
+
+  EXPECT_TRUE(h);
+}
+
+TEST(argument_handler_test, do_help_yes2) {
+  int argc = 2;
+  char const *argv[2] = {"pancaketimer", "--help"};
+  ArgumentHandler handler(argc, argv);
+  auto h = handler.doHelp();
+
+  EXPECT_TRUE(h);
+}
+
+TEST(argument_handler_test, do_help_yes3) {
+  int argc = 3;
+  char const *argv[3] = {"pancaketimer", "--help", "--mode"};
+  ArgumentHandler handler(argc, argv);
+  auto h = handler.doHelp();
+
+  EXPECT_TRUE(h);
+}
+
+TEST(argument_handler_test, do_help_yes4) {
+  int argc = 3;
+  char const *argv[3] = {"pancaketimer", "-h", "--mode"};
+  ArgumentHandler handler(argc, argv);
+  auto h = handler.doHelp();
+
+  EXPECT_TRUE(h);
+}
+
+TEST(argument_handler_test, do_help_no) {
+  int argc = 3;
+  char const *argv[3] = {"pancaketimer", "--mode", "crepe"};
+  ArgumentHandler handler(argc, argv);
+  auto h = handler.doHelp();
+
+  EXPECT_FALSE(h);
+}
+
+
+
 int main(int argc, char *argv[]) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
