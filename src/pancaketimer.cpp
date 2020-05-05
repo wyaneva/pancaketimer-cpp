@@ -9,7 +9,11 @@
 #include <iostream>
 #include <string>
 
-class PancakeTimer {};
+#if __linux__
+#define VLC "cvlc"
+#elif __APPLE__
+#define VLC "/Applications/VLC.app/Contents/MacOS/VLC"
+#endif
 
 int const time_step = 1;     // seconds
 int const total_width = 100; // columns
@@ -46,6 +50,12 @@ void write_progress(int const bar_width, int const total_width,
   std::cout << green_bar << "\r" << std::flush;
 }
 
+void beep() {
+  std::string command = VLC;
+  command.append(" --play-and-exit beep.mov vlc://quit 2> /dev/null");
+  system(command.c_str());
+}
+
 void run_timer(int const time, bool const do_print) {
   int threshold = 0;
   int bar_fill = total_width;
@@ -71,6 +81,8 @@ void run_timer(int const time, bool const do_print) {
 void time_pancake(Mode const mode) {
   run_timer(mode.side1, true);
   write_progress(0, total_width, "FLIP! FLIP! FLIP!");
+  beep();
   run_timer(mode.flip, false);
   run_timer(mode.side2, true);
+  beep();
 }

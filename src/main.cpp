@@ -8,8 +8,6 @@
 #include <iostream>
 #include <vector>
 
-// TODO 4: Add sound
-
 int main(int argc, const char *argv[]) {
   ArgumentHandler argumenthandler(argc, argv);
 
