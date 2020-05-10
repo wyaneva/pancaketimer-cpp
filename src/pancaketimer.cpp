@@ -57,25 +57,10 @@ void beep() {
   system(command.c_str());
 }
 
-int round_up(int num, int mult) {
-  if (mult == 0)
-    return num;
-
-  int remainder = num % mult;
-  if (remainder == 0)
-    return num;
-
-  if (num < 0)
-    return -(num - remainder);
-  else
-    return num + mult - remainder;
-}
-
 void run_timer(int const time, bool const do_print) {
   auto threshold = 0;
-  auto total_count = round_up(total_width, time);
+  auto total_count = time;
   auto count = total_count;
-  auto count_step = (float)(total_count) / time;
   auto start = std::chrono::high_resolution_clock::now();
 
   while (count >= 0) {
@@ -86,11 +71,11 @@ void run_timer(int const time, bool const do_print) {
       if (do_print) {
         auto text =
             std::to_string(time - t.count()) + "/" + std::to_string(time);
-        auto bar_fill = total_width * (count)/(float)total_count;
+        auto bar_fill = total_width * (count/(float)total_count);
         write_progress(bar_fill, total_width, text);
       }
       threshold += time_step;
-      count -= count_step;
+      count -= 1;
     }
   }
 }
