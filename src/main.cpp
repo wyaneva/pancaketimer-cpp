@@ -27,7 +27,8 @@ int main(int argc, const char *argv[]) {
   for (int i = 0; i < repeats; i++) {
     time_pancake(mode);
     if (i < repeats - 1) {
-      std::cout << "Press Enter to countinue..."
+      std::cout << std::endl
+                << "Press Enter to countinue..."
                 << "\r" << std::flush;
       std::cin.ignore();
     }

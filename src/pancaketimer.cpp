@@ -15,13 +15,14 @@
 #define VLC "/Applications/VLC.app/Contents/MacOS/VLC"
 #endif
 
-int const time_step = 1;     // seconds
-int const total_width = 100; // columns
+int const time_step = 1; // seconds
+int const total_width = 100;   // columns
 char const BAR_CHAR = '=';
 char const SPACE_CHAR = ' ';
 
 void write_progress(int const bar_width, int const total_width,
                     std::string const text) {
+
   // calculate spacing for the text in the progress bar
   auto text_len = text.size();
   auto half_width = total_width / 2;
@@ -56,13 +57,28 @@ void beep() {
   system(command.c_str());
 }
 
+int round_up(int num, int mult) {
+  if (mult == 0)
+    return num;
+
+  int remainder = num % mult;
+  if (remainder == 0)
+    return num;
+
+  if (num < 0)
+    return -(num - remainder);
+  else
+    return num + mult - remainder;
+}
+
 void run_timer(int const time, bool const do_print) {
-  int threshold = 0;
-  int bar_fill = total_width;
-  float step = (float)(total_width) / time;
+  auto threshold = 0;
+  auto total_count = round_up(total_width, time);
+  auto count = total_count;
+  auto count_step = (float)(total_count) / time;
   auto start = std::chrono::high_resolution_clock::now();
 
-  while (bar_fill >= 0) {
+  while (count >= 0) {
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> tt = end - start;
     auto t = std::chrono::duration_cast<std::chrono::seconds>(tt);
@@ -70,10 +86,11 @@ void run_timer(int const time, bool const do_print) {
       if (do_print) {
         auto text =
             std::to_string(time - t.count()) + "/" + std::to_string(time);
+        auto bar_fill = total_width * (count)/(float)total_count;
         write_progress(bar_fill, total_width, text);
       }
       threshold += time_step;
-      bar_fill -= step;
+      count -= count_step;
     }
   }
 }
