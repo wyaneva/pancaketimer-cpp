@@ -12,6 +12,7 @@ public:
   ArgumentHandler(int const &argc, char const *argv[]) : parser(argc, argv){};
 
   // public functions
+  bool areArgumentsCorrect();
   Mode getPancakeMode();
   int getRepeats();
   bool doHelp();

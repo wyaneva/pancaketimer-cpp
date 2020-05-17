@@ -4,6 +4,18 @@
  */
 
 #include "argumenthandler.h"
+#include <set>
+
+constexpr auto arg_help1 = "-h";
+constexpr auto arg_help2 = "--help";
+constexpr auto arg_mode = "--mode";
+constexpr auto arg_side1 = "--side1";
+constexpr auto arg_side2 = "--side2";
+constexpr auto arg_repeats = "--repeats";
+static std::set<std::string> existingArguments = {arg_help1, arg_help2, arg_mode,
+                                           arg_side1, arg_side2, arg_repeats};
+
+bool ArgumentHandler::areArgumentsCorrect() { return true; }
 
 bool ArgumentHandler::doHelp() {
   return parser.doesArgumentExist("-h") || parser.doesArgumentExist("--help");
@@ -12,13 +24,10 @@ bool ArgumentHandler::doHelp() {
 void ArgumentHandler::printHelp() {
   std::cout
       << "Welcome to Pancake Timer!" << std::endl
-      << "To make the perfect pancakes, run ./pancaketimer without arguments."
-      << std::endl
-      << "For the perfect crepes, run with\t\"--mode crepes\"." << std::endl
-      << "To use your own times, run with \t\"--side1 [time] --side2 [time]\"."
-      << std::endl
-      << "To make repeat pancakes, run with\t\"--repeats [number]\"."
-      << std::endl
+      << "To make the perfect pancakes, run ./pancaketimer without arguments.\n"
+      << "For the perfect crepes, run with\t\"--mode crepes\".\n"
+      << "To use your own times, run with \t\"--side1 [time] --side2 [time]\".\n"
+      << "To make repeat pancakes, run with\t\"--repeats [number]\".\n"
       << "Good luck!" << std::endl;
 }
 
