@@ -15,7 +15,23 @@ constexpr auto arg_repeats = "--repeats";
 static std::set<std::string> existingArguments = {arg_help1, arg_help2, arg_mode,
                                            arg_side1, arg_side2, arg_repeats};
 
-bool ArgumentHandler::areArgumentsCorrect() { return true; }
+bool ArgumentHandler::areArgumentsCorrect() {
+
+  auto options = parser.getOptions();
+  bool areOptionsCorrect = true;
+
+  for (auto option : options) {
+    if (existingArguments.find(option) == existingArguments.end()) {
+      std::cout << "Option \"" << option << "\" is not correct.\n";
+      areOptionsCorrect = false;
+    }
+  }
+
+  if (!areOptionsCorrect) {
+    std::cout << "Run ./pancaketimer -h to see available options." << std::endl;
+  }
+  return areOptionsCorrect;
+}
 
 bool ArgumentHandler::doHelp() {
   return parser.doesArgumentExist("-h") || parser.doesArgumentExist("--help");

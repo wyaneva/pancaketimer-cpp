@@ -13,6 +13,7 @@ public:
   std::string const getArgumentValueStr(std::string const &option) const;
   int const getArgumentValueInt(std::string const &option) const;
   bool doesArgumentExist(std::string const &option) const;
+  std::vector<std::string> const getOptions() const;
 
 private:
   std::vector<std::string> tokens;

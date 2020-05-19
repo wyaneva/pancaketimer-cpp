@@ -8,7 +8,6 @@
 #include <iostream>
 #include <vector>
 
-//TODO: Write "areArgumentsCorrect"
 //TODO: Write tests for "areArgumentsCorrect"
 
 int main(int argc, const char *argv[]) {

@@ -38,3 +38,15 @@ bool ArgumentParser::doesArgumentExist(std::string const &option) const {
   auto token = std::find(tokens.begin(), tokens.end(), option);
   return token != tokens.end();
 }
+
+std::vector<std::string> const ArgumentParser::getOptions() const {
+
+  std::vector<std::string> options;
+  for (auto token : tokens) {
+    if (token.front() == '-') {
+      options.push_back(token);
+    }
+  }
+
+  return options;
+}
