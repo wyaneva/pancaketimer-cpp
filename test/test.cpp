@@ -229,7 +229,23 @@ TEST(argument_handler_test, do_help_no) {
   EXPECT_FALSE(h);
 }
 
+TEST(argument_handler_test, are_arguments_correct_yes) {
+  int argc = 7;
+  char const *argv[7] = {"pancaketimer", "--mode", "-h", "--help", "--repeats", "--side1", "--side2"};
+  ArgumentHandler handler(argc, argv);
+  auto h = handler.areArgumentsCorrect();
 
+  EXPECT_TRUE(h);
+}
+
+TEST(argument_handler_test, are_arguments_correct_no) {
+  int argc = 3;
+  char const *argv[3] = {"pancaketimer", "-repeats", "-help"};
+  ArgumentHandler handler(argc, argv);
+  auto h = handler.areArgumentsCorrect();
+
+  EXPECT_FALSE(h);
+}
 
 int main(int argc, char *argv[]) {
   ::testing::InitGoogleTest(&argc, argv);

@@ -8,8 +8,6 @@
 #include <iostream>
 #include <vector>
 
-//TODO: Write tests for "areArgumentsCorrect"
-
 int main(int argc, const char *argv[]) {
   ArgumentHandler argumenthandler(argc, argv);
 
